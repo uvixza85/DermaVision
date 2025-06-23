@@ -22,4 +22,5 @@
 
 .navbar-links a:hover {
     color: #FFDDD2;
+    text-decoration: underline;
 }

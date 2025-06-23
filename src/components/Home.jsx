@@ -1,7 +1,9 @@
 import React from "react";
 import "./Home.css";
+import { useNavigate } from "react-router-dom"
 
 function Home(){
+  const navigate = useNavigate();
     return(
         <div className="container">
         < section className="hero">
@@ -9,8 +11,8 @@ function Home(){
         <p>
         Our deep learning model classifies skin lesions from dermatoscopic images with high accuracy. Backed by research, driven by impact.
         </p>
-        <button>Detect</button>
-        <button>Research</button>
+        <button onClick={() => navigate('/upload')}>Detect</button>
+        <button onClick={() => navigate('/Research')}>Research</button>
       </section>
 
      

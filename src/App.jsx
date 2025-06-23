@@ -6,20 +6,27 @@ import Aboutus from './components/Aboutus';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 
 function App() {
 
   return (
-    <>
+    <Router>
     <div className='app'>
       <Navbar/>
       <div   className='maincontainer' >
-    <Research/>
+      <Routes>
+          <Route path="/" element={<Home />} />         
+          <Route path="/upload" element={<Upload />} />
+          <Route path="/research" element={<Research />} />
+          <Route path="/about" element={<Aboutus />} />
+          <Route path="*" element={<h1>404 Not Found</h1>} />
+      </Routes>
     </div>
 
     <Footer/>
     </div>
-    </>
+    </Router>
   );
 }
 

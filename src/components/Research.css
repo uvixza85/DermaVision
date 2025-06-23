@@ -16,7 +16,7 @@
 
 .main{
     background-color: #ffffff;
-    padding: 40px;
+    padding: 10px;
     margin: 30px ;
     border-radius: 20px;
     max-width: 800px;
@@ -24,7 +24,7 @@
 }
 
 h1{
-    font-size: 28px;
+    font-size: 40px;
         color: #006D77;
         margin-bottom: 30px;
         text-align: center;
