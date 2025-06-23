@@ -1,0 +1,37 @@
+.research-block {
+    margin-bottom: 30px;
+}
+
+.research-block h3 {
+    font-size: 20px;
+    color: #006D77;
+    margin-bottom: 8px;
+}
+
+.research-block p {
+    font-size: 16px;
+    color: #6B728E;
+    line-height: 1.6; }
+
+
+.main{
+    background-color: #ffffff;
+    padding: 40px;
+    margin: 30px ;
+    border-radius: 20px;
+    max-width: 800px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+h1{
+    font-size: 28px;
+        color: #006D77;
+        margin-bottom: 30px;
+        text-align: center;
+}
+.info{
+    font-size: 16px;
+        color: #6B728E;
+        line-height: 1.6;
+        font-weight: bolder;
+}
