@@ -18,6 +18,7 @@ function App() {
       <Routes>
           <Route path="/" element={<Home />} />         
           <Route path="/upload" element={<Upload />} />
+          <Route path="/result" element={<Result/>} />
           <Route path="/research" element={<Research />} />
           <Route path="/about" element={<Aboutus />} />
           <Route path="*" element={<h1>404 Not Found</h1>} />

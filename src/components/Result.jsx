@@ -1,8 +1,12 @@
 import React from "react";
 import "./Result.css"
-import Footer from "./Footer";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 function Result(){
+  const { state } = useLocation();
+  const { imageurl } = state;
+  const navigate = useNavigate();
     return(
         <div className="result-card-with-image">
         <div className="result-card">
@@ -15,11 +19,11 @@ function Result(){
 
         <div className="result-actions">
           <button className="download-btn">Download Report</button>
-          <button className="back-btn">Go Back</button>
+          <button className="back-btn" onClick={() => navigate('/upload')}>Upload another</button>
         </div>
       </div>
       <div className="result-image-box">
-            <img src="/images/uploaderm.png" alt="Result Preview" className="result-image" />
+            <img src={imageurl} alt="Result Preview" className="result-image" />
           </div>
 
       </div>
