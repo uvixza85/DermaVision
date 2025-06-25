@@ -5,17 +5,17 @@ import { useNavigate } from 'react-router-dom';
 
 function Result(){
   const { state } = useLocation();
-  const { imageurl } = state;
+  const { imageurl, predictedLabel ,confidence } = state;
   const navigate = useNavigate();
     return(
         <div className="result-card-with-image">
         <div className="result-card">
         <h2>Prediction Result</h2>
         <p className="prediction-text">Condition Detected:</p>
-        <p className="prediction-value">x</p>
+        <p className="prediction-value">{predictedLabel}</p>
 
         <p className="confidence-text">Confidence:</p>
-        <p className="confidence-value">y</p>
+        <p className="confidence-value">{confidence}</p>
 
         <div className="result-actions">
           <button className="download-btn">Download Report</button>

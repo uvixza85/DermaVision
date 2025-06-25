@@ -1,18 +1,53 @@
 import React, { useState } from 'react';
 import "./Upload.css";
 import { useNavigate } from 'react-router-dom';
+import * as tf from '@tensorflow/tfjs';
 
  function Upload(){
   const [selectedImage, setSelectedImage] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
   const navigate = useNavigate();
 
   async function fileview(event){
     const file = event.target.files[0];
+    setImageFile(file);
     setSelectedImage(URL.createObjectURL(file));
   }
     
   function handlesubmit(){
     navigate("/result", { replace: true, state: { imageurl:selectedImage  } })
+  }
+  async function predictImage() {
+    // 1. Load model
+    const model = await tf.loadLayersModel('/images/model/tfjs_model/model.json');
+    const imageBitmap = await createImageBitmap(imageFile);
+
+  let tensor = tf.browser.fromPixels(imageBitmap)
+    .resizeNearestNeighbor([28, 28])
+    .toFloat();
+
+  // Standardization (replace with your actual values)
+  const TRAINING_MEAN = 127.5;
+  const TRAINING_STD = 50.0;
+  tensor = tensor.sub(TRAINING_MEAN).div(TRAINING_STD);
+
+  const batched = tensor.expandDims(0);
+
+  const prediction = model.predict(batched);
+  const data = await prediction.data();
+  const maxIndex = data.indexOf(Math.max(...data));
+
+  const classLabels = ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"];
+  const predictedLabel = classLabels[maxIndex];
+  const confidence = (data[maxIndex] * 100).toFixed(2);
+  navigate("/result", {
+    replace: true,
+    state: {
+      imageurl: selectedImage ,
+      predictedLabel,
+      confidence
+    }
+  });
   }
 
 
@@ -43,7 +78,7 @@ import { useNavigate } from 'react-router-dom';
 }} >
           upload another 
         </button>
-         <button className="upload-btn" onClick={handlesubmit}>
+         <button className="upload-btn" onClick={predictImage}>
          Submit for Prediction  
        </button></div> )}
           
