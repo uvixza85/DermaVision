@@ -24,3 +24,35 @@
     color: #FFDDD2;
     text-decoration: underline;
 }
+
+/* Tablet adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 20px;
+    }
+
+    .navbar-logo {
+        font-size: 22px;
+    }
+
+    .navbar-links a {
+        font-size: 15px;
+        margin-left: 15px;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 16px;
+    }
+
+    .navbar-logo {
+        font-size: 20px;
+    }
+
+    .navbar-links a {
+        font-size: 14px;
+        margin-left: 10px;
+    }
+}

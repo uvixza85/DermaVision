@@ -113,4 +113,57 @@
             border-radius: 20px;
             max-width: 1000px;
             width: 100%;
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);     }
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);    
+ }
+
+ @media (max-width: 768px) {
+     .result-card-with-image {
+         flex-direction: column;
+         align-items: center;
+         padding: 30px;
+     }
+
+     .result-card {
+         max-width: 100%;
+         padding: 30px;
+     }
+
+     .result-image-box {
+         margin-top: 20px;
+     }
+
+     .result-image {
+         width: 80%;
+         max-width: 280px;
+     }
+ }
+
+ /* Mobile: Tighter spacing on small screens */
+ @media (max-width: 480px) {
+     .result-card-with-image {
+         padding: 20px;
+         gap: 20px;
+     }
+
+     .result-card h2 {
+         font-size: 22px;
+     }
+
+     .prediction-value {
+         font-size: 20px;
+     }
+
+     .confidence-value {
+         font-size: 18px;
+     }
+
+     .download-btn,
+     .back-btn {
+         padding: 10px 20px;
+         font-size: 14px;
+     }
+
+     .result-image {
+         width: 100%;
+         max-width: 240px;
+     } }

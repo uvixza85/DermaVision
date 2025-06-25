@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
+import LearnPage from './components/Learnpage';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />         
           <Route path="/upload" element={<Upload />} />
           <Route path="/result" element={<Result/>} />
+          <Route path="/learn" element={<LearnPage/>} />
           <Route path="/research" element={<Research />} />
           <Route path="/about" element={<Aboutus />} />
           <Route path="*" element={<h1>404 Not Found</h1>} />

@@ -1,0 +1,48 @@
+.learn-container {
+    max-width: 700px;
+    margin: 80px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.learn-container h2 {
+    color: #006D77;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.learn-container p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.learn-link {
+    display: inline-block;
+    background: #006D77;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.learn-link:hover {
+    background: #055e67;
+}
+
+.back-btn {
+    background-color: #FFDDD2;
+    color: #222831;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 10px;
+}
