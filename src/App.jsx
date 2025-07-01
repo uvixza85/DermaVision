@@ -6,8 +6,10 @@ import Aboutus from './components/Aboutus';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Report from './components/Report';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import LearnPage from './components/Learnpage';
+import UserForm from './components/Userform';
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
       <Routes>
           <Route path="/" element={<Home />} />         
           <Route path="/upload" element={<Upload />} />
+          <Route path="/form" element={<UserForm/>} />
+          <Route path="/report" element={<Report />} />
           <Route path="/result" element={<Result/>} />
           <Route path="/learn" element={<LearnPage/>} />
           <Route path="/research" element={<Research />} />

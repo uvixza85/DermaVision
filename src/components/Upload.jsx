@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Upload.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , useLocation} from 'react-router-dom';
 import * as tf from '@tensorflow/tfjs';
 
  function Upload(){
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageFile, setImageFile] = useState(null);
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const { userData } = state || {};  // default to empty object if undefined
+
 
   async function fileview(event){
     const file = event.target.files[0];
@@ -14,9 +17,11 @@ import * as tf from '@tensorflow/tfjs';
     setSelectedImage(URL.createObjectURL(file));
   }
     
-  function handlesubmit(){
-    navigate("/result", { replace: true, state: { imageurl:selectedImage  } })
-  }
+  useEffect(() => {
+    if (!userData) {
+      navigate('/form');
+    }
+  }, [userData, navigate]);
   async function predictImage() {
     // 1. Load model
     const model = await tf.loadLayersModel('/images/model/tfjs_model/model.json');
@@ -45,7 +50,8 @@ import * as tf from '@tensorflow/tfjs';
     state: {
       imageurl: selectedImage ,
       predictedLabel,
-      confidence
+      confidence,
+      userData
     }
   });
   }
