@@ -10,6 +10,7 @@ import Report from './components/Report';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import LearnPage from './components/Learnpage';
 import UserForm from './components/Userform';
+import History from './components/History';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/form" element={<UserForm/>} />
           <Route path="/report" element={<Report />} />
           <Route path="/result" element={<Result/>} />
+          <Route path="/history" element={<History/>} />
           <Route path="/learn" element={<LearnPage/>} />
           <Route path="/research" element={<Research />} />
           <Route path="/about" element={<Aboutus />} />

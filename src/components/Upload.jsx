@@ -51,7 +51,8 @@ import * as tf from '@tensorflow/tfjs';
       imageurl: selectedImage ,
       predictedLabel,
       confidence,
-      userData
+      userData,
+      imageFile
     }
   });
   }

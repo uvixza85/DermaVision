@@ -2,14 +2,41 @@ import React from "react";
 import "./Result.css"
 import { useLocation } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import { useEffect , useRef } from "react";
 
 function Result(){
   const { state } = useLocation();
-  const { imageurl, predictedLabel ,confidence, userData } = state;
+  const calledOnce = useRef(false);
+  const { imageurl, predictedLabel ,confidence, userData , Image } = state;
   const navigate = useNavigate();
   const confidenceThreshold = 0.7;
   var displaylabel = predictedLabel;
   var note="";
+
+  useEffect(() => {
+    if (calledOnce.current) return; // ✅ only call once
+    calledOnce.current = true;
+    const saveReport = async () => {
+      await fetch("http://localhost:5000/save-report", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: userData.name,
+          
+          gender: userData.gender,
+          phone_number: userData.phone,
+          diagnosis: predictedLabel,
+          confidence: confidence,
+          imageurl : Image
+        })
+      });
+    };
+  
+    saveReport();
+  }, []);
+  
   
   if(confidence < confidenceThreshold * 100 ){
     {
